@@ -54,12 +54,12 @@ namespace TheGuardMoreApp.Controllers
         [ProducesResponseType(typeof(ApiSuccessResponseModel<string>), 201)]
         public async Task<ApiResult> SaveUser(User request)
         {
-            User resultItem = new User();
             try
             {
                 var index = 0;
                 var sql = "SELECT idUser FROM sampledb.user order by 1 desc LIMIT 1; ";
                 var result = await _conn.QueryAsync<IEnumerable<int>>(sql);
+
                 if (result.ToList().Count > 0)
                     index = Convert.ToInt32(result.ToList().First()) > 0 ? Convert.ToInt32(result.ToList().First()) + 1 : 1;
                 request.idUser = index;
@@ -67,7 +67,10 @@ namespace TheGuardMoreApp.Controllers
                 _ = this._conn.ExecuteAsync("INSERT INTO user (idUser, Name, CompanyName, Address,PinCode) VALUES (@idUser,@Name,@CompanyName,@Address,@PinCode)", new { request.idUser, request.Name, request.CompanyName, request.Address, request.PINCode });
 
 
+
+
                 return new ApiResult(result, HttpStatusCode.Created);
+
 
             }
             catch (Exception ex)
