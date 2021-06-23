@@ -39,9 +39,6 @@ namespace TheGuardMoreApp.Controllers
         public IEnumerable<WeatherForecast> Get()
         {
 
-            this._conn.Execute("INSERT INTO user (idUser, Name, CompanyName, Address,PinCode) VALUES( 1, 'test', 'test', 'test','1111')");
-            var sql = "SELECT * FROM user";
-            var result = this._conn.Query<User>(sql).ToList();
 
             var rng = new Random();
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
@@ -60,9 +57,15 @@ namespace TheGuardMoreApp.Controllers
             User resultItem = new User();
             try
             {
-                _ = this._conn.ExecuteAsync("INSERT INTO user (idUser, Name, CompanyName, Address,PinCode) VALUES( 1, 'test', 'test', 'test','1111')");
-                var sql = "SELECT * FROM user";
-                var result = await _conn.QueryAsync<List<User>>(sql);
+                var index = 0;
+                var sql = "SELECT idUser FROM sampledb.user order by 1 desc LIMIT 1; ";
+                var result = await _conn.QueryAsync<IEnumerable<int>>(sql);
+                if (result.ToList().Count > 0)
+                    index = Convert.ToInt32(result.ToList().First()) > 0 ? Convert.ToInt32(result.ToList().First()) + 1 : 1;
+                request.idUser = index;
+
+                _ = this._conn.ExecuteAsync("INSERT INTO user (idUser, Name, CompanyName, Address,PinCode) VALUES (@idUser,@Name,@CompanyName,@Address,@PinCode)", new { request.idUser, request.Name, request.CompanyName, request.Address, request.PINCode });
+
 
                 return new ApiResult(result, HttpStatusCode.Created);
 
@@ -73,7 +76,7 @@ namespace TheGuardMoreApp.Controllers
                 return HandleException(ex);
             }
 
-           
+
         }
 
         protected ApiResult HandleException(Exception exception)
