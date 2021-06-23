@@ -1,0 +1,8 @@
+CREATE TABLE `user` (
+  `idUser` int(11) NOT NULL,
+  `Name` varchar(100) CHARACTER SET utf8 NOT NULL,
+  `CompanyName` varchar(100) CHARACTER SET utf8 DEFAULT NULL,
+  `Address` varchar(1000) CHARACTER SET utf8 DEFAULT NULL,
+  `PinCode` varchar(20) CHARACTER SET utf8 NOT NULL,
+  PRIMARY KEY (`idUser`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
