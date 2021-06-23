@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31105.61
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheGuardMoreApp", "TheGuardMoreApp\TheGuardMoreApp.csproj", "{B9EFA2DC-BB5A-4836-B83F-D26FD1BACA64}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "TheGuardMoreAppDB", "TheGuardMoreAppDB\TheGuardMoreAppDB.sqlproj", "{4E766A5E-2AF0-46D7-B290-11B863A9CFF5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B9EFA2DC-BB5A-4836-B83F-D26FD1BACA64}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B9EFA2DC-BB5A-4836-B83F-D26FD1BACA64}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B9EFA2DC-BB5A-4836-B83F-D26FD1BACA64}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B9EFA2DC-BB5A-4836-B83F-D26FD1BACA64}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4E766A5E-2AF0-46D7-B290-11B863A9CFF5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E766A5E-2AF0-46D7-B290-11B863A9CFF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E766A5E-2AF0-46D7-B290-11B863A9CFF5}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{4E766A5E-2AF0-46D7-B290-11B863A9CFF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E766A5E-2AF0-46D7-B290-11B863A9CFF5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4E766A5E-2AF0-46D7-B290-11B863A9CFF5}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7CD64F99-F4CC-4C86-99E8-D550A144C8F0}
+	EndGlobalSection
+EndGlobal
